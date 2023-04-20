@@ -1,11 +1,17 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AdminModule } from './module/admin/admin.module';
+import { ApiModule } from './module/api/api.module';
+import { DefaultModule } from './module/default/default.module';
 //配置数据库链接
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
+    AdminModule,
+    ApiModule,
+    DefaultModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: '127.0.0.1',
